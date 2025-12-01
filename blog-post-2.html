@@ -1,36 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Future of AI | Blog</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Why I Started Writing Online | Blog</title>
+
     <style>
-        /* --- CSS VARIABLES (THEME MATCHING) --- */
         :root {
             --bg-color: #0f0f0f;
             --card-bg: #1a1a1a;
             --text-main: #e0e0e0;
             --text-muted: #a0a0a0;
-            --accent: #00d4ff; 
+            --accent: #00d4ff;
             --accent-hover: #00a3cc;
             --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            --font-serif: Georgia, 'Times New Roman', Times, serif; /* For reading content */
+            --font-serif: Georgia, 'Times New Roman', Times, serif;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: var(--bg-color);
+            background: var(--bg-color);
             color: var(--text-main);
             font-family: var(--font-main);
-            line-height: 1.6;
+            line-height: 1.7;
             padding-top: 5rem;
         }
 
-        a { text-decoration: none; color: var(--accent); transition: 0.3s; }
-        a:hover { color: var(--accent-hover); }
-
-        /* --- NAVIGATION --- */
         header {
             position: fixed;
             top: 0;
@@ -41,92 +37,82 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 1000;
             border-bottom: 1px solid #333;
+            z-index: 100;
         }
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
-        .back-link { font-size: 0.9rem; color: var(--text-muted); }
+
+        .logo {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .back-link {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            transition: .3s;
+        }
         .back-link:hover { color: var(--text-main); }
 
-        /* --- ARTICLE CONTAINER --- */
         .article-container {
-            max-width: 700px; /* Narrower for better reading experience */
+            max-width: 750px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
         }
 
-        /* --- HEADER & META --- */
         .article-header {
             margin-bottom: 3rem;
-            text-align: left;
-            border-bottom: 1px solid #333;
             padding-bottom: 2rem;
+            border-bottom: 1px solid #333;
         }
 
         .article-meta {
             font-size: 0.9rem;
             color: var(--text-muted);
-            margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             display: flex;
             gap: 1rem;
+            margin-bottom: 1rem;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             line-height: 1.2;
-            margin-bottom: 1.5rem;
-            color: #fff;
+            font-weight: bold;
         }
 
-        /* --- CONTENT TYPOGRAPHY --- */
         .article-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
             color: #d1d1d1;
         }
 
         .article-content p { margin-bottom: 1.5rem; }
 
         .article-content h2 {
-            font-size: 1.8rem;
-            color: #fff;
+            font-size: 1.9rem;
             margin-top: 3rem;
             margin-bottom: 1rem;
+            font-family: var(--font-main);
         }
 
-        .article-content ul {
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
-            list-style-type: disc;
-        }
-
-        .article-content li { margin-bottom: 0.5rem; color: var(--text-muted); }
-
-        /* Blockquote Styling */
         blockquote {
             border-left: 4px solid var(--accent);
-            padding-left: 1.5rem;
+            padding: 1.2rem 1.5rem;
             margin: 2rem 0;
-            font-style: italic;
-            color: var(--text-main);
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
+            background: rgba(255,255,255,0.05);
             border-radius: 0 8px 8px 0;
+            font-style: italic;
         }
 
-        /* Code/Tech Highlight Styling */
-        code {
-            background: #222;
-            padding: 0.2rem 0.4rem;
-            border-radius: 4px;
-            font-family: monospace;
-            color: var(--accent);
-            font-size: 0.9em;
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        /* --- FOOTER SECTION --- */
+        li { margin-bottom: 0.6rem; color: var(--text-muted); }
+
         .article-footer {
             margin-top: 4rem;
             padding-top: 2rem;
@@ -138,88 +124,118 @@
 
         .btn-outline {
             border: 1px solid #333;
-            padding: 0.8rem 1.5rem;
+            padding: 0.7rem 1.4rem;
             border-radius: 4px;
-            color: var(--text-muted);
             font-size: 0.9rem;
+            color: var(--text-muted);
+            transition: .3s;
         }
         .btn-outline:hover {
             border-color: var(--accent);
             color: var(--accent);
         }
 
-        /* --- MOBILE --- */
         @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
+            h1 { font-size: 2.1rem; }
             .article-container { padding: 1rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">VOID</div>
-        <a href="index.html#blog" class="back-link">&larr; Back to Home</a>
-    </header>
+<header>
+    <div class="logo">VOID</div>
+    <a href="index.html#blog" class="back-link">← Back to Home</a>
+</header>
 
-    <div class="article-container">
-        
-        <div class="article-header">
-            <div class="article-meta">
-                <span>Oct 24, 2023</span>
-                <span style="color: var(--accent);">• Technology</span>
-                <span>• 5 Min Read</span>
-            </div>
-            <h1>Why I Started Writing Online</h1>
+<div class="article-container">
+
+    <div class="article-header">
+        <div class="article-meta">
+            <span>Dec 02, 2025</span>
+            <span style="color: var(--accent);">• Personal</span>
+            <span>• 4 Min Read</span>
         </div>
-
-        <article class="article-content">
-            <p>
-                For most of my life, writing was something that lived quietly in the back of my mind — something I did privately, in notes, drafts, or half-finished thoughts. But somewhere along the way, I realized that the things I wrote weren’t just lines… they were reflections of everything I couldn’t say out loud.  
-                <br><br>
-                <strong>Publishing them online was never about attention. It was about expression — and survival.</strong>
-            </p>
-
-            <h2>The Shift from Automation to Creation</h2>
-            <p>
-                Historically, technology was about automation—doing repetitive tasks faster than humans. 
-                With the advent of Large Language Models (LLMs) and Generative AI, we are seeing a shift toward <em>creation</em>. 
-                AI is no longer just sorting spreadsheets; it is writing code, generating art, and drafting complex legal documents.
-            </p>
-
-            <blockquote>
-                "The danger is not that computers will begin to think like men, but that men will begin to think like computers." 
-                <br>— Sydney J. Harris
-            </blockquote>
-
-            <p>
-                This quote resonates now more than ever. As we integrate tools like <code>ChatGPT</code> and <code>Midjourney</code> into our workflows, 
-                we must ensure that we retain the "human spark"—the intuition and empathy that algorithms cannot replicate.
-            </p>
-
-            <h2>Three Predictions for the Next Decade</h2>
-            <p>Based on current trends, here is where I believe the industry is heading:</p>
-            <ul>
-                <li><strong>Hyper-Personalization:</strong> Every app interface will dynamically adjust to the specific user's needs in real-time.</li>
-                <li><strong>Coding as a Utility:</strong> Natural language will become the primary programming language. You won't need to know Python to build an app; you'll just need to know how to describe it.</li>
-                <li><strong>The Trust Economy:</strong> As deepfakes become perfect, digital verification and "human-made" watermarks will become incredibly valuable assets.</li>
-            </ul>
-
-            <h2>Final Thoughts</h2>
-            <p>
-                The future isn't about AI replacing us. It's about AI amplifying us. The developers, writers, and creators who learn to 
-                wield these tools effectively will not be replaced—they will become the architects of the new digital void.
-            </p>
-        </article>
-
-        <div class="article-footer">
-            <span style="color: #666;">Thanks for reading.</span>
-            <a href="index.html#blog" class="btn-outline">Back to Blog List</a>
-        </div>
-
+        <h1>Why I Started Writing Online</h1>
     </div>
 
-    <br><br><br>
+    <article class="article-content">
+        <p>
+            Writing was never a planned journey for me. It wasn’t a habit, a hobby, or a skill I consciously tried to build. 
+            It was simply something that happened — quietly, slowly, almost secretly. My thoughts lived inside notes, drafts, and untitled documents… 
+            places where no one else ever looked.
+        </p>
+
+        <p>
+            But over time, those private thoughts started becoming too heavy to keep inside. I realized something simple yet powerful:
+            <br><br>
+            <strong>Writing is the only way I truly hear myself.</strong>
+        </p>
+
+        <h2>The Real Reason I Started</h2>
+        <p>
+            People assume writing online is about attention or building an audience. For me, it wasn’t. It was much more personal. 
+            Every time I wrote something, I wasn’t trying to impress anyone — I was trying to understand myself.
+        </p>
+
+        <blockquote>
+            "I spoke silence."
+            <br>
+            — A line I once wrote, but also a truth I lived.
+        </blockquote>
+
+        <p>
+            Writing became a bridge — between my thoughts and my clarity, between confusion and meaning. 
+            It gave shape to the chaos swirling in my mind. And publishing it online was simply the next step: 
+            <em>a way to let my thoughts breathe instead of suffocating inside me.</em>
+        </p>
+
+        <h2>Why Online?</h2>
+        <p>
+            Because the internet is freedom.
+            Not popularity.
+            Not validation.
+            Freedom.
+        </p>
+
+        <ul>
+            <li>Freedom to express without interruption.</li>
+            <li>Freedom to be honest without performance.</li>
+            <li>Freedom to document my mind in real time.</li>
+        </ul>
+
+        <p>
+            And somewhere deep inside, I realized this:
+            <br><br>
+            <strong>Thoughts that are never expressed eventually turn into weight you keep carrying.</strong>
+        </p>
+
+        <h2>What Writing Did to Me</h2>
+        <p>
+            It sharpened my thinking.
+            It made me more truthful.
+            It forced me to confront myself.
+            It gave me a place to exist without filters.
+        </p>
+
+        <p>
+            And slowly, writing became something else — not just expression, but evolution.
+        </p>
+
+        <h2>Final Words</h2>
+        <p>
+            I didn’t start writing online to be seen.
+            I started so I could finally see myself.
+        </p>
+
+    </article>
+
+    <div class="article-footer">
+        <span style="color: #666;">Thanks for reading.</span>
+        <a href="index.html#blog" class="btn-outline">Back to Blog List</a>
+    </div>
+
+</div>
 
 </body>
 </html>

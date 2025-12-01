@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amitesh Pandey | Resume</title>
+    <style>
+        :root {
+            --bg-color: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent: #00d4ff;
+            --accent-hover: #00a3cc;
+            --border: #333;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            padding-top: 5rem;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .nav-links a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .resume-container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+        }
+
+        .sidebar {
+            border-right: 1px solid var(--border);
+            padding-right: 2rem;
+        }
+
+        .sidebar-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .sidebar h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        .contact-info li {
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: #252525;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border);
+        }
+
+        .education-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .school-name {
+            font-weight: bold;
+        }
+
+        .degree {
+            color: var(--text-muted);
+        }
+
+        .grade {
+            color: var(--accent);
+            font-size: 0.85rem;
+        }
+
+        .header-name {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-title {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .resume-section {
+            margin-bottom: 3rem;
+        }
+
+        .resume-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+        }
+
+        .job-card,
+        .project-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+
+        .role {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .company {
+            color: var(--accent);
+        }
+
+        .date {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .description ul {
+            list-style: disc;
+            margin-left: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .description li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.8rem 2rem;
+            background: var(--accent);
+            color: #000;
+            text-align: center;
+            width: 100%;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .resume-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                padding-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">VOID</div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#portfolio">Work</a>
+            <a href="#resume" style="color: var(--accent)">Resume</a>
+        </nav>
+    </header>
+
+    <div class="resume-container">
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3>Contact</h3>
+                <ul class="contact-info">
+                    <li>📧 pamitesh2004@gmail.com</li>
+                    <li>📞 8957959391</li>
+                    <!-- <li>🔗 LinkedIn</li>
+                    <li>🐙 GitHub</li> -->
+                </ul>
+                <!-- <a class="download-btn">Download PDF</a> -->
+                <a  class="download-btn" href="Amitesh_Resume_compressed.pdf" download>Download PDF</a>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Education</h3>
+                <div class="education-item">
+                    <span class="school-name">GL Bajaj Institute of Technology & Management</span><br />
+                    <span class="degree">B.Tech (IT)</span><br />
+                    <span class="grade">CGPA: 8.5/10</span><br />
+                    <span class="date">2022 - Present</span>
+                </div>
+                <div class="education-item">
+                    <span class="school-name">Jai Academy</span><br />
+                    <span class="degree">12th (CBSE)</span><br />
+                    <span class="grade">87.2%</span>
+                </div>
+                <div class="education-item">
+                    <span class="school-name">Christ The King</span><br />
+                    <span class="degree">10th (ICSE)</span><br />
+                    <span class="grade">90.3%</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Technical Skills</h3>
+                <strong>Languages</strong>
+                <div class="skill-tags">
+                    <span class="tag">Java</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">C++</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Bash</span>
+                </div>
+                <br />
+
+                <strong>Web Development</strong>
+                <div class="skill-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Express</span>
+                    <span class="tag">MySQL</span>
+                </div>
+                <br />
+
+                <strong>Core CS</strong>
+                <div class="skill-tags">
+                    <span class="tag">DSA</span>
+                    <span class="tag">OOPS</span>
+                    <span class="tag">DBMS</span>
+                    <span class="tag">OS</span>
+                    <span class="tag">CN</span>
+                    <span class="tag">Linux Admin</span>
+                </div>
+                <br />
+
+                <strong>Cloud & Tools</strong>
+                <div class="skill-tags">
+                    <span class="tag">AWS (EC2, S3, IAM)</span>
+                    <span class="tag">Git/GitHub</span>
+                    <span class="tag">REST APIs</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Certificates</h3>
+                <ul>
+                    <li>AWS Virtual Cloud Internship (2024)</li>
+                    <li>Zscaler Zero Trust Associate (2023)</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main>
+            <section>
+                <h1 class="header-name">Amitesh Pandey</h1>
+                <p class="header-title">Software Engineer | Full-Stack Developer | Cloud Enthusiast</p>
+            </section>
+
+            <section class="resume-section">
+                <h2>Experience</h2>
+
+                <div class="job-card">
+                    <div class="card-header">
+                        <div>
+                            <span class="role">Zero Trust Security Trainee</span>
+                            <span class="company"> @ Zscaler Academy</span>
+                        </div>
+                        <span class="date">Nov 2024</span>
+                    </div>
+                    <div class="description">
+                        <ul>
+                            <li>Worked on Zero Trust Security Principles & Zscaler Architecture.</li>
+                            <li>Reduced infra setup time by 25%.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <div class="card-header">
+                        <div>
+                            <span class="role">Cloud Intern</span>
+                            <span class="company"> @ AWS</span>
+                        </div>
+                        <span class="date">Dec 2023</span>
+                    </div>
+                    <div class="description">
+                        <ul>
+                            <li>Deployed and managed EC2, S3, IAM for scalable cloud infrastructure.</li>
+                            <li>Implemented role-based IAM access reducing misconfigurations.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="resume-section">
+                <h2>Projects</h2>
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <span class="role">Recurring Hub (Startup)</span>
+                        <span class="date">React, Node, Firebase</span>
+                    </div>
+                    <div class="description">
+                        <ul>
+                            <li>Automated recurring fee collection with reminders.</li>
+                            <li>Reduced manual follow-up work by 60%.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <span class="role">Food Delivery App</span>
+                        <span class="date">MERN Stack</span>
+                    </div>
+                    <div class="description">
+                        <ul>
+                            <li>30% faster UI using reusable React components.</li>
+                            <li>Responsive UI + full Cart CRUD using local storage.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <span class="role">Krishi Sathi – Precision Agriculture</span>
+                        <span class="date">IoT + Web</span>
+                    </div>
+                    <div class="description">
+                        <ul>
+                            <li>Built IoT-based web app for soil monitoring.</li>
+                            <li>Integrated sensor data into a farmer-friendly dashboard.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="resume-section">
+                <h2>Achievements</h2>
+                <div class="job-card">
+                    <div class="description">
+                        <ul>
+                            <li>Solved 300+ DSA problems on LeetCode.</li>
+                            <li>Participated in Hackathons, Coding events, Bootcamps.</li>
+                            <li>Delivered technical workshops on Cloud & AI.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Digital Void | Portfolio & Blog</title>
     <style>
+.about-img {
+    max-width: 240px;   /* adjust this number */
+    width: 50%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.about-img img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
 
       /* Fullscreen Background Video */
 #bg-video {
@@ -193,6 +206,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#portfolio">Work</a></li>
                 <li><a href="#blog">Blog</a></li>
+                <li><a href="resume.html">Resume</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -212,6 +226,7 @@
         </h1>
         <p class="hero-subtitle">Developer. Writer. Creator. Welcome to my personal void.</p>
         <a href="#portfolio" class="btn">View My Work</a>
+        
     </div>
 </section>
 
@@ -219,13 +234,19 @@
     <section id="about">
         <h2>About Me</h2>
         <div class="about-content">
-            <div class="placeholder-img">[Insert Your Photo Here]</div>
-            <div class="about-text">
+            <!-- <div class="placeholder-img">[Insert Your Photo Here]</div> -->
+            <div class="about-img">
+    <img src="your-image1.jpg" alt="My Photo">
+</div>
+
+<div class="about-text">
                 <p><strong>Who I am:</strong> I’m Amitesh — a developer, writer, and someone who thinks far more than he speaks. My background is simple, but my curiosity isn’t.</p>
                 <p><strong>What drives me:</strong> I’m driven by a need to understand. Not just technology, but people, choices, silence, meaning, and the uncertainty around us. I build things because creation is the only moment where my mind feels honest.</p>
                 <p><strong>My Stack:</strong> Python, JavaScript, HTML/CSS, React, Writing, Design.</p>
             </div>
         </div>
+
+            
     </section>
 
     <section id="portfolio">
@@ -259,13 +280,13 @@
         <h2>Recent Thoughts</h2>
         <div class="blog-list">
             <article class="blog-post">
-                <span class="blog-date">October 24, 2023</span>
+                <span class="blog-date">October 24, 2025</span>
                 <h3>The Future of Artificial Intelligence</h3>
                 <p>A teaser paragraph for your blog post goes here. Hook the reader with an interesting premise so they want to click read more...</p>
                 <a href="blog-post-1.html" class="read-more">Read Full Post &rarr;</a>
             </article>
             <article class="blog-post">
-                <span class="blog-date">September 12, 2023</span>
+                <span class="blog-date">September 12, 2025</span>
                 <h3>Why I Started Writing Online</h3>
                 <p>Personal reflection posts are great for a personal website. It helps people get to know the human behind the screen.</p>
                 <a href="blog-post-2.html" class="read-more">Read Full Post &rarr;</a>
@@ -311,7 +332,7 @@
   <script>
     var typeData = new Typed(".role", {
       strings: [
-        "Amitesh Pandey",
+        "Amitesh ",
         "Developer",
         "Coder",
         "Writer",
