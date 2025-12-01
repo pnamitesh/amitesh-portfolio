@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Philosophical Void | Quotes</title>
+    <style>
+        /* --- CSS VARIABLES (MATCHING THE THEME) --- */
+        :root {
+            --bg-color: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent: #00d4ff; 
+            --accent-hover: #00a3cc;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --quote-font: 'Georgia', serif; /* A classic font for quotes */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            padding-top: 5rem;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        /* --- NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+        .nav-links a { margin-left: 2rem; color: var(--text-main); font-weight: 500;}
+        .nav-links a:hover { color: var(--accent); }
+
+        /* --- PAGE HEADER --- */
+        .page-header {
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+        .page-header h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .page-header p { color: var(--text-muted); max-width: 700px; margin: 0 auto; }
+
+        /* --- QUOTE GRID --- */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        .quote-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* --- QUOTE CARD DESIGN --- */
+        .quote-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #333;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Push attribution to bottom */
+        }
+
+        .quote-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.05);
+        }
+
+        .quote-text {
+            font-family: var(--quote-font);
+            font-size: 1.3rem;
+            line-height: 1.5;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            flex-grow: 1; /* Allows text to take up space */
+        }
+
+        .quote-author {
+            font-size: 0.9rem;
+            color: var(--accent);
+            text-align: right;
+            font-style: italic;
+            margin-top: 1rem;
+            border-top: 1px dashed #333;
+            padding-top: 1rem;
+        }
+        
+        /* Optional: Add a subtle quote icon */
+        .quote-card::before {
+            content: '“';
+            font-family: var(--quote-font);
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.05);
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            z-index: 0;
+            line-height: 1;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            margin-top: 4rem;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 2rem; }
+            .nav-links { display: none; } /* Simplified nav */
+            .quote-card { padding: 1.5rem; }
+            .quote-text { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">YOUR NAME.</div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>The Philosophical Void</h1>
+        <p>A collection of thoughts, ponderings, and insights that shape my perspective.</p>
+        <p style="margin-top: 0.5rem; font-style: italic; color: #777;">
+            "The unexamined life is not worth living." — Socrates
+        </p>
+    </section>
+
+    <div class="gallery-container">
+        <div class="quote-grid">
+
+            <div class="quote-card">
+                <p class="quote-text">
+                    "True wisdom is knowing what you don't know. The more I learn, the more I realize the vastness of my ignorance."
+                </p>
+                <p class="quote-author">
+                    — [Your Name]
+                </p>
+            </div>
+
+            <div class="quote-card">
+                <p class="quote-text">
+                    "Every silence holds a universe of unsaid words; listen closely, for that is where true understanding begins."
+                </p>
+                <p class="quote-author">
+                    — [Your Name]
+                </p>
+            </div>
+
+            <div class="quote-card">
+                <p class="quote-text">
+                    "The journey is the reward. Focus not on the destination, but on the growth experienced with every step."
+                </p>
+                <p class="quote-author">
+                    — [Your Name]
+                </p>
+            </div>
+
+            <div class="quote-card">
+                <p class="quote-text">
+                    "Innovation isn't about changing everything; it's about seeing the familiar with new eyes."
+                </p>
+                <p class="quote-author">
+                    — [Your Name]
+                </p>
+            </div>
+            
+            <div class="quote-card">
+                <p class="quote-text">
+                    "Fear is not the enemy; stagnation is. Embrace the discomfort of change, for it is the only path to evolution."
+                </p>
+                <p class="quote-author">
+                    — [Your Name]
+                </p>
+            </div>
+            
+            <div class="quote-card">
+                <p class="quote-text">
+                    "The greatest freedom lies not in choice, but in the acceptance of what cannot be chosen."
+                </p>
+                <p class="quote-author">
+                    — [Your Name]
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 [Your Name]. Echoes from the Void.</p>
+    </footer>
+
+</body>
+</html>

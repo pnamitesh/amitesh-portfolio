@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects | My Portfolio</title>
+    <style>
+        /* --- CSS VARIABLES (MATCHING THE THEME) --- */
+        :root {
+            --bg-color: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent: #00d4ff; 
+            --accent-hover: #00a3cc;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            padding-top: 5rem;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        /* --- NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+        .nav-links a { margin-left: 2rem; color: var(--text-main); font-weight: 500;}
+        .nav-links a:hover { color: var(--accent); }
+
+        /* --- PAGE HEADER --- */
+        .page-header {
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+        .page-header h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .page-header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        /* --- PROJECT GRID --- */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Responsive Grid */
+            gap: 2.5rem;
+        }
+
+        /* --- PROJECT CARD DESIGN --- */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background-color: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .card h3 { font-size: 1.5rem; margin-bottom: 0.8rem; }
+        
+        .card p { 
+            color: var(--text-muted); 
+            font-size: 0.95rem; 
+            margin-bottom: 1.5rem; 
+            flex-grow: 1; 
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: #252525;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: #ccc;
+            border: 1px solid #333;
+        }
+
+        .card-btn {
+            text-align: center;
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 0.8rem;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .card-btn:hover {
+            background: var(--accent);
+            color: #000;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            margin-top: 4rem;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 2rem; }
+            .nav-links { display: none; } /* Simplified nav */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">VOID</div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>Major Projects Hub</h1>
+        <p>A collection of my major projects, case studies, and experiments.</p>
+    </section>
+
+    <div class="gallery-container">
+        <div class="project-grid">
+
+            <div class="card">
+                <div class="card-image">
+                    [Project 1 Thumbnail Image]
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Web Development</span>
+                    <h3>Titan Dashboard</h3>
+                    <p>A complete redesign of an internal operations dashboard, improving data retrieval speed by 40%.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">D3.js</span>
+                        <span class="tech-tag">Figma</span>
+                    </div>
+                    <a href="project-1.html" class="card-btn">View Case Study</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    [Project 2 Thumbnail Image]
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Mobile App</span>
+                    <h3>Fitness Tracker App</h3>
+                    <p>An iOS application focusing on minimalist tracking for powerlifters with custom graphing features.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Swift</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">UI/UX</span>
+                    </div>
+                    <a href="project-2.html" class="card-btn">View Case Study</a>
+                </div>
+            </div>
+
+            <!-- <div class="card">
+                <div class="card-image">
+                    [Project 3 Thumbnail Image]
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Machine Learning</span>
+                    <h3>Sentiment Analysis Tool</h3>
+                    <p>A Python-based tool that scrapes Twitter data to analyze brand sentiment in real-time.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">NLP</span>
+                    </div>
+                    <a href="project-3.html" class="card-btn">View Case Study</a>
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Amitesh. Built for the Void.</p>
+    </footer>
+
+</body>
+</html>

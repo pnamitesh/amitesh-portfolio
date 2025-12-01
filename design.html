@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | The Void</title>
+    <style>
+        /* --- CSS VARIABLES (MATCHING YOUR THEME) --- */
+        :root {
+            --bg-color: #0f0f0f;
+            --text-main: #e0e0e0;
+            --text-muted: #555;
+            --accent: #00d4ff; 
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* --- THE EMPTY BOX ANIMATION --- */
+        .void-box {
+            width: 100px;
+            height: 100px;
+            border: 2px dashed var(--text-muted);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: var(--text-muted);
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { border-color: var(--text-muted); color: var(--text-muted); transform: scale(1); }
+            50% { border-color: var(--accent); color: var(--accent); transform: scale(1.05); }
+            100% { border-color: var(--text-muted); color: var(--text-muted); transform: scale(1); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            color: var(--accent);
+        }
+
+        /* --- RETURN BUTTON --- */
+        .btn {
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            border: 1px solid var(--text-muted);
+            color: var(--text-main);
+            border-radius: 50px;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="void-box">?</div>
+
+    <h1>
+        Not thinking yet<br>
+        <span class="highlight">what to place here</span>
+    </h1>
+
+    <p>This sector of the void is currently under construction.<br>Check back later for creative works.</p>
+
+    <a href="index.html" class="btn">Return to Home</a>
+
+</body>
+</html>

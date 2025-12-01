@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Digital Void | Portfolio & Blog</title>
+    <style>
+
+      /* Fullscreen Background Video */
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.50; /* Adjust transparency */
+}
+
+/* Ensure home section overlays the video */
+#home {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+}
+
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-color: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent: #00d4ff; /* Cyan accent */
+            --accent-hover: #00a3cc;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+
+        nav ul { display: flex; gap: 2rem; }
+        nav a:hover { color: var(--accent); }
+
+        /* --- SECTIONS GENERAL --- */
+        section {
+            padding: 4rem 5%;
+            min-height: 80vh; /* Takes up most of the screen */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+        }
+
+        /* --- HERO SECTION --- */
+        #home {
+            min-height: 100vh;
+            align-items: flex-start;
+            background: radial-gradient(circle at top right, #0f0f0f, transparent);
+        }
+
+        .hero-title { font-size: 4rem; line-height: 1.1; margin-bottom: 1rem; }
+        .hero-subtitle { font-size: 1.5rem; color: var(--text-muted); margin-bottom: 2rem; }
+        
+        .btn {
+            padding: 0.8rem 2rem;
+            background: var(--accent);
+            color: #000;
+            font-weight: bold;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .btn:hover { background: var(--accent-hover); }
+
+        /* --- ABOUT SECTION --- */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .about-text p { margin-bottom: 1rem; color: var(--text-muted); }
+        .placeholder-img {
+            width: 100%;
+            height: 300px;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            border-radius: 8px;
+        }
+
+        /* --- PORTFOLIO GRID --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+            transition: transform 0.3s;
+        }
+        .project-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .project-card h3 { margin-bottom: 0.5rem; }
+        .tags { font-size: 0.8rem; color: var(--accent); margin-bottom: 1rem; display: block;}
+
+        /* --- BLOG SECTION --- */
+        .blog-list { display: flex; flex-direction: column; gap: 2rem; }
+        .blog-post {
+            border-bottom: 1px solid #333;
+            padding-bottom: 2rem;
+        }
+        .blog-date { font-size: 0.9rem; color: var(--text-muted); }
+        .blog-post h3 { font-size: 1.8rem; margin: 0.5rem 0; }
+        .read-more { color: var(--accent); font-weight: bold; margin-top: 1rem; display: block; }
+
+        /* --- CONTACT --- */
+        #contact { text-align: center; align-items: center; }
+        .contact-links { margin-top: 2rem; display: flex; gap: 1.5rem; justify-content: center; }
+        .contact-links a { font-size: 1.2rem; border-bottom: 1px solid transparent; }
+        .contact-links a:hover { border-bottom: 1px solid var(--accent); }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #000;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .about-content { grid-template-columns: 1fr; }
+            nav ul { display: none; } /* Simplified for this demo */
+            header { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">VOID</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Work</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+  <section id="home">
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="your-video.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-content">
+        <h1 class="hero-title">Hii, 
+            <div class="hero-section-heading hero-section-sub-heading">
+                I am <span class="role"></span>
+            </div>
+            <!-- I create digital experiences. -->
+        </h1>
+        <p class="hero-subtitle">Developer. Writer. Creator. Welcome to my personal void.</p>
+        <a href="#portfolio" class="btn">View My Work</a>
+    </div>
+</section>
+
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="placeholder-img">[Insert Your Photo Here]</div>
+            <div class="about-text">
+                <p><strong>Who I am:</strong> I’m Amitesh — a developer, writer, and someone who thinks far more than he speaks. My background is simple, but my curiosity isn’t.</p>
+                <p><strong>What drives me:</strong> I’m driven by a need to understand. Not just technology, but people, choices, silence, meaning, and the uncertainty around us. I build things because creation is the only moment where my mind feels honest.</p>
+                <p><strong>My Stack:</strong> Python, JavaScript, HTML/CSS, React, Writing, Design.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2>Selected Work</h2>
+        <div class="portfolio-grid">
+            <div class="project-card">
+                <span class="tags">WEB DEVELOPMENT</span>
+                <h3>Major Projects Hub</h3>
+                <p>A collection of my most important work — full-stack applications, real-world problem solvers.</p>
+                <br>
+                <a href="project.html" style="text-decoration: underline;">View Project &rarr;</a>
+            </div>
+            <div class="project-card">
+                <span class="tags">WRITING </span>
+                <h3>The Philosophical Void</h3>
+                <p>A curated collection of my original philosophical thoughts and reflections.</p>
+                <br>
+                <a href="writing.html" style="text-decoration: underline;">Read Quotes &rarr;</a>
+            </div>
+            <div class="project-card">
+                <span class="tags">DESIGN</span>
+                <h3>Creative Lab</h3>
+                <p>A space reserved for my upcoming creative projects — UI concepts and design explorations.</p>
+                <br>
+                <a href="design.html" style="text-decoration: underline;">View Design &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
+        <h2>Recent Thoughts</h2>
+        <div class="blog-list">
+            <article class="blog-post">
+                <span class="blog-date">October 24, 2023</span>
+                <h3>The Future of Artificial Intelligence</h3>
+                <p>A teaser paragraph for your blog post goes here. Hook the reader with an interesting premise so they want to click read more...</p>
+                <a href="blog-post-1.html" class="read-more">Read Full Post &rarr;</a>
+            </article>
+            <article class="blog-post">
+                <span class="blog-date">September 12, 2023</span>
+                <h3>Why I Started Writing Online</h3>
+                <p>Personal reflection posts are great for a personal website. It helps people get to know the human behind the screen.</p>
+                <a href="blog-post-2.html" class="read-more">Read Full Post &rarr;</a>
+            </article>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <p style="color: #a0a0a0; max-width: 600px;">
+            I am currently open to new opportunities and collaborations. 
+            Whether you have a question or just want to say hi, my inbox is always open.
+        </p>
+        <div class="contact-links">
+    <a href="mailto:pamitesh2004@gmail.com">Email Me</a>
+    <a href="https://www.linkedin.com/in/amitesh-pandey-940999219/" target="_blank">LinkedIn</a>
+    <a href="https://github.com/pnamitesh" target="_blank">GitHub</a>
+    <a href="https://x.com/Amitesh38380956" target="_blank">X</a>
+    <a href="https://www.instagram.com/pn_amitesh/">Instagram</a>
+</div>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Amitesh — Created inside the Void ❤️</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+
+        
+    </script>
+     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://kit.fontawesome.com/58a810656e.js" crossorigin="anonymous"></script>
+  <script>
+    var typeData = new Typed(".role", {
+      strings: [
+        "Amitesh Pandey",
+        "Developer",
+        "Coder",
+        "Writer",
+        "Void",
+      ],
+      loop: true,
+      typeSpeed: 100,
+      backSpeed: 80,
+      backDelay: 1000,
+    });
+  </script>
+</body>
+</html>
