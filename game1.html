@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Breathing Void | A Calm Ritual</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --card-bg: #101010;
+            --text-main: #e0e0e0;
+            --text-muted: #888;
+            --accent: #00d4ff;
+            --accent-soft: rgba(0, 212, 255, 0.08);
+            --accent-strong: rgba(0, 212, 255, 0.3);
+            --font-display: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-body: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at top, #111 0, #050505 55%);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 0.9rem 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(12px);
+            background: linear-gradient(to bottom, rgba(5,5,5,0.95), rgba(5,5,5,0.6), transparent);
+            z-index: 10;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+        }
+
+        .logo span {
+            color: var(--text-main);
+            opacity: 0.6;
+            font-size: 0.8rem;
+            margin-left: 0.25rem;
+        }
+
+        .nav-link {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--text-main);
+            border-color: #333;
+        }
+
+        /* MAIN LAYOUT */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 6rem 1.5rem 3rem;
+        }
+
+        .wrapper {
+            max-width: 980px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        /* LEFT SIDE – TEXT */
+        .intro {
+            padding-right: 1rem;
+        }
+
+        .tag {
+            font-family: var(--font-display);
+            font-size: 0.78rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.6rem;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            font-weight: 300;
+            margin-bottom: 0.8rem;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .pill {
+            font-family: var(--font-display);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 999px;
+            padding: 0.35rem 0.9rem;
+            border: 1px solid #333;
+            color: var(--text-muted);
+            background: radial-gradient(circle at top, #181818, #101010);
+        }
+
+        .pill.main {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-soft);
+        }
+
+        .explainer {
+            font-size: 0.98rem;
+            color: #c7c7c7;
+            margin-bottom: 1.5rem;
+        }
+
+        .explainer strong {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .tiny-note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.6rem;
+        }
+
+        /* RIGHT SIDE – GAME AREA */
+        .game-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid #222;
+            padding: 2.1rem 2rem 2rem;
+            box-shadow: 0 0 40px rgba(0,0,0,0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-card::before {
+            content: "";
+            position: absolute;
+            inset: -40%;
+            background: radial-gradient(circle at top, rgba(0,212,255,0.12), transparent 55%);
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        .game-inner {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.8rem;
+        }
+
+        .breath-orbit {
+            width: 210px;
+            height: 210px;
+            border-radius: 50%;
+            border: 1px dashed rgba(255,255,255,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .breath-orbit::before {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 1px solid rgba(0,212,255,0.08);
+            filter: blur(1px);
+        }
+
+        .breath-circle {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: radial-gradient(circle at top, var(--accent), #003b4b);
+            box-shadow: 0 0 25px var(--accent-strong);
+            transition: transform 4s ease-in-out, box-shadow 4s ease-in-out, opacity 1s ease-in-out;
+        }
+
+        .breath-circle.inhale {
+            transform: scale(1.35);
+            box-shadow: 0 0 40px var(--accent-strong);
+        }
+
+        .breath-circle.exhale {
+            transform: scale(0.9);
+            box-shadow: 0 0 12px rgba(0,212,255,0.18);
+        }
+
+        .breath-circle.hold {
+            transform: scale(1.15);
+            box-shadow: 0 0 30px var(--accent-strong);
+        }
+
+        .phase-label {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .phase-sub {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .timer-row {
+            display: flex;
+            gap: 1.4rem;
+            justify-content: center;
+            margin-top: 0.2rem;
+        }
+
+        .timer-chip {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 999px;
+            border: 1px solid #333;
+            padding: 0.32rem 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .timer-chip span {
+            color: var(--accent);
+        }
+
+        .message {
+            font-size: 0.9rem;
+            color: #cfcfcf;
+            text-align: center;
+            min-height: 2.2rem;
+        }
+
+        .controls {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+
+        .btn-primary {
+            font-family: var(--font-display);
+            border-radius: 999px;
+            padding: 0.65rem 1.7rem;
+            border: 1px solid var(--accent);
+            background: transparent;
+            color: var(--accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .btn-ghost {
+            font-family: var(--font-display);
+            border-radius: 999px;
+            padding: 0.5rem 1.1rem;
+            border: 1px solid #333;
+            background: rgba(0,0,0,0.4);
+            color: var(--text-muted);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-ghost:hover {
+            border-color: #555;
+            color: var(--text-main);
+        }
+
+        .hint {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.7rem;
+            text-align: center;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 1.5rem 1.5rem 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        footer span {
+            color: var(--accent);
+        }
+
+        /* MOBILE */
+        @media (max-width: 850px) {
+            main {
+                padding-top: 6.4rem;
+            }
+            .wrapper {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .intro {
+                padding-right: 0;
+                text-align: center;
+            }
+            .pill-row {
+                justify-content: center;
+            }
+            h1 {
+                font-size: 2.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .game-card {
+                padding: 1.7rem 1.4rem 1.6rem;
+            }
+            .breath-orbit {
+                width: 180px;
+                height: 180px;
+            }
+            .breath-orbit::before {
+                width: 240px;
+                height: 240px;
+            }
+            .breath-circle {
+                width: 95px;
+                height: 95px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">VOID<span>breath ritual</span></div>
+    <!-- Optional back link -->
+    <!-- <a href="index.html" class="nav-link">&larr; Back to Home</a> -->
+</header>
+
+<main>
+    <div class="wrapper">
+
+        <!-- LEFT SIDE: Explanation -->
+        <section class="intro">
+            <div class="tag">Game 01 · Single Player</div>
+            <h1>The Breathing Void</h1>
+            <p class="subtitle">A calm ritual where your breath fills the empty space.</p>
+
+            <div class="pill-row">
+                <div class="pill main">4–2–6 Breathing</div>
+                <div class="pill">One Player</div>
+                <div class="pill">No Score · Just Calm</div>
+            </div>
+
+            <p class="explainer">
+                Sit comfortably. Look at the glowing circle inside the void.
+                Your only task is to let your breath follow its rhythm:
+                <strong>inhale as it grows</strong>, <strong>hold when it stills</strong>,
+                <strong>exhale as it shrinks</strong>.
+            </p>
+
+            <p class="explainer">
+                There is nothing to reach, nothing to prove. 
+                Just you, your lungs, and a piece of quiet space that belongs only to you.
+            </p>
+
+            <p class="tiny-note">
+                Tip: Use headphones, dim the lights, and stay for at least 1 minute.
+                Your nervous system will thank you.
+            </p>
+        </section>
+
+        <!-- RIGHT SIDE: Game -->
+        <section class="game-card" aria-label="Breathing exercise">
+            <div class="game-inner">
+                <div class="breath-orbit">
+                    <div class="breath-circle" id="breathCircle"></div>
+                </div>
+
+                <div>
+                    <div class="phase-label" id="phaseLabel">Ready?</div>
+                    <div class="phase-sub" id="phaseSub">Press start and breathe with the circle.</div>
+                    <div class="timer-row">
+                        <div class="timer-chip">Session: <span id="sessionTime">0:00</span></div>
+                        <div class="timer-chip">Cycles: <span id="cycleCount">0</span></div>
+                    </div>
+                </div>
+
+                <p class="message" id="message">
+                    The void will move slowly. Let the body follow. The mind can rest.
+                </p>
+
+                <div class="controls">
+                    <button class="btn-primary" id="startBtn">Start Ritual</button>
+                    <button class="btn-ghost" id="resetBtn">Reset</button>
+                </div>
+
+                <p class="hint">
+                    Inhale · 4 seconds &nbsp; | &nbsp; Hold · 2 seconds &nbsp; | &nbsp; Exhale · 6 seconds
+                </p>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+<footer>
+    This is a quiet game. If you felt calmer even for a moment, the void has done its work. <span>Stay.</span>
+</footer>
+
+<script>
+    // Breathing phases: inhale 4s, hold 2s, exhale 6s, hold 2s
+    const phases = [
+        { name: "Inhale", sub: "Breathe in slowly through your nose.", duration: 4000, class: "inhale" },
+        { name: "Hold",   sub: "Hold gently. Do not strain.",         duration: 2000, class: "hold" },
+        { name: "Exhale", sub: "Exhale softly through the mouth.",    duration: 6000, class: "exhale" },
+        { name: "Hold",   sub: "Pause. Feel the stillness.",         duration: 2000, class: "hold" }
+    ];
+
+    const affirmations = [
+        "You’re doing enough. Keep following the glow.",
+        "Notice the space between thoughts. That’s you.",
+        "Nothing to fix. Just breathe.",
+        "Each breath is proof you’re still here. That’s beautiful.",
+        "The void is not empty. It’s holding you.",
+        "Calm is not loud. You won’t miss it."
+    ];
+
+    const breathCircle = document.getElementById("breathCircle");
+    const phaseLabel   = document.getElementById("phaseLabel");
+    const phaseSub     = document.getElementById("phaseSub");
+    const sessionTime  = document.getElementById("sessionTime");
+    const cycleCountEl = document.getElementById("cycleCount");
+    const messageEl    = document.getElementById("message");
+    const startBtn     = document.getElementById("startBtn");
+    const resetBtn     = document.getElementById("resetBtn");
+
+    let currentPhaseIndex = 0;
+    let running = false;
+    let cycleCount = 0;
+    let phaseTimeout;
+    let sessionStart = null;
+    let sessionTimerInterval;
+
+    function formatTime(ms) {
+        const totalSeconds = Math.floor(ms / 1000);
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+        return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+    }
+
+    function updateSessionTime() {
+        if (!sessionStart) return;
+        const elapsed = Date.now() - sessionStart;
+        sessionTime.textContent = formatTime(elapsed);
+
+        // Soft milestone messages
+        const seconds = Math.floor(elapsed / 1000);
+        if (seconds === 60) {
+            messageEl.textContent = "One minute of calm. Stay if it feels good.";
+        } else if (seconds === 120) {
+            messageEl.textContent = "Two minutes. Your nervous system is unwinding.";
+        }
+    }
+
+    function setPhase(index) {
+        if (!running) return;
+
+        const phase = phases[index];
+        currentPhaseIndex = index;
+
+        // Update visuals & text
+        breathCircle.classList.remove("inhale", "exhale", "hold");
+        breathCircle.classList.add(phase.class);
+
+        phaseLabel.textContent = phase.name;
+        phaseSub.textContent   = phase.sub;
+
+        // Schedule next phase
+        phaseTimeout = setTimeout(() => {
+            let nextIndex = (currentPhaseIndex + 1) % phases.length;
+            if (nextIndex === 0) {
+                cycleCount++;
+                cycleCountEl.textContent = cycleCount;
+
+                // Change affirmation sometimes at full cycle
+                const random = affirmations[Math.floor(Math.random() * affirmations.length)];
+                messageEl.textContent = random;
+            }
+            setPhase(nextIndex);
+        }, phase.duration);
+    }
+
+    function startRitual() {
+        if (running) return;
+        running = true;
+        startBtn.textContent = "Running...";
+        startBtn.disabled = true;
+
+        sessionStart = Date.now();
+        sessionTime.textContent = "0:00";
+        cycleCount = 0;
+        cycleCountEl.textContent = "0";
+        messageEl.textContent = "Let the circle lead. You simply follow.";
+
+        sessionTimerInterval = setInterval(updateSessionTime, 500);
+        setPhase(0);
+    }
+
+    function resetRitual() {
+        running = false;
+        currentPhaseIndex = 0;
+        cycleCount = 0;
+        cycleCountEl.textContent = "0";
+        sessionTime.textContent = "0:00";
+        sessionStart = null;
+
+        clearTimeout(phaseTimeout);
+        clearInterval(sessionTimerInterval);
+
+        breathCircle.classList.remove("inhale", "exhale", "hold");
+        phaseLabel.textContent = "Ready?";
+        phaseSub.textContent = "Press start and breathe with the circle.";
+        messageEl.textContent = "The void will move slowly. Let the body follow. The mind can rest.";
+        startBtn.textContent = "Start Ritual";
+        startBtn.disabled = false;
+    }
+
+    startBtn.addEventListener("click", startRitual);
+    resetBtn.addEventListener("click", resetRitual);
+</script>
+</body>
+</html>
