@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>.void-card {
+    position: relative;
+    display: block;
+    background: rgba(0,0,0,0.55);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 2rem;
+    border-radius: 18px;
+    text-decoration: none;
+    color: #e0e0e0;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.05);
+    transition: 0.3s ease;
+}
+
+.void-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 40px rgba(0,212,255,0.20);
+}
+
+.void-card h2 {
+    font-size: 1.9rem;
+    letter-spacing: 3px;
+    margin-bottom: 0.7rem;
+    color: #00d4ff;
+}
+
+.void-card h2 span {
+    color: #888;
+}
+
+.void-card p {
+    font-size: 1rem;
+    color: #aaa;
+    margin-bottom: 1.4rem;
+    line-height: 1.6;
+}
+
+.void-card button {
+    padding: 0.7rem 1.3rem;
+    border: none;
+    border-radius: 14px;
+    background: #00d4ff;
+    color: #000;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.void-card button:hover {
+    background: #00a3cc;
+}
+
+/* Glow background */
+.void-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0,212,255,0.15), transparent 70%);
+    filter: blur(60px);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0.7;
+    animation: voidPulse 7s infinite ease-in-out;
+}
+
+@keyframes voidPulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.9; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+}
+
+@media (max-width: 600px) {
+    .void-card {
+        padding: 1.6rem;
+    }
+    .void-card h2 {
+        font-size: 1.5rem;
+    }
+}
+</style>
+</head>
+<body>
+    <a href="https://void-ai.vercel.app" target="_blank" class="void-card">
+    <div class="void-glow"></div>
+
+    <h2>VOID <span>AI</span></h2>
+    <p>A calm, reflective AI that listens, comforts, and responds like the void itself.</p>
+
+    <button>Talk to the Void →</button>
+</a>
+
+</body>
+</html>

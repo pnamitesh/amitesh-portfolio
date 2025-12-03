@@ -194,6 +194,102 @@
             nav ul { display: none; } /* Simplified for this demo */
             header { justify-content: center; }
         }
+
+
+        /* Void ai zone  */
+         .void-feature-container {
+            max-width: 1200px;
+            margin: 0 auto 3rem auto;
+            padding: 0 5%;
+        }
+
+        .void-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: rgba(20, 20, 20, 0.8); /* Slightly darker to match theme */
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 3rem 2rem;
+            border-radius: 18px;
+            text-decoration: none;
+            color: var(--text-main);
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .void-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.15);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        .void-card h2 {
+            font-size: 2.2rem;
+            letter-spacing: 4px;
+            margin-bottom: 0.7rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        .void-card h2 span {
+            color: #666;
+            font-weight: 700;
+        }
+
+        .void-card p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        .void-btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: 0.25s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .void-card:hover .void-btn {
+            background: var(--accent);
+            color: #000;
+            box-shadow: 0 0 15px var(--accent);
+        }
+
+        /* Glow background animation */
+        .void-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1), transparent 70%);
+            filter: blur(80px);
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            opacity: 0.6;
+            animation: voidPulse 6s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes voidPulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+        }
     </style>
 </head>
 <body>
@@ -248,7 +344,18 @@
 
             
     </section>
+<!-- Ai zone -->
+        <div class="void-feature-container">
+        <a href="https://void-ai-self.vercel.app/" target="_blank" class="void-card">
+            <div class="void-glow"></div>
+            <h2>VOID <span>AI</span></h2>
+            <p>A calm, reflective AI interface living in the digital void. <br>Capable of conversation, reflection, and silence.</p>
+            <button class="void-btn">Enter The Void &rarr;</button>
+        </a>
+    </div>
 
+
+<!-- Ai zone  -->
     <section id="portfolio">
         <h2>Selected Work</h2>
         <div class="portfolio-grid">
@@ -311,7 +418,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 Amitesh — Created inside the Void ❤️</p>
+        <p>&copy; 2025 Amitesh — Created inside the Void </p>
     </footer>
 
     <script>
